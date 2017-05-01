@@ -1,12 +1,10 @@
 # Builds an image for Apache Kafka 0.8.1.1 from binary distribution.
 #
-# The netflixoss/java base image runs Oracle Java 8 installed atop the
-# ubuntu:trusty (14.04) official image. Docker's official java images are
-# OpenJDK-only currently, and the Kafka project, Confluent, and most other
-# major Java projects test and recommend Oracle Java for production for optimal
-# performance.
+# The netflixoss/java base image runs Oracle Java 7 installed atop the
+# ubuntu:trusty (14.04) official image. However Oracle Java is unavailable
+# for ppc64le, so this is using OpenJDK for now.
 
-FROM netflixoss/java:8
+FROM ppc64le/openjdk:openjdk-8-jdk
 MAINTAINER Ches Martin <ches@whiskeyandgrits.net>
 
 # The Scala 2.11 build is currently recommended by the project.
